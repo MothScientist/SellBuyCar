@@ -1,0 +1,81 @@
+@import url(https://fonts.googleapis.com/css?family=Didact+Gothic|Comfortaa:400,700&subset=latin,cyrillic);
+
+html, body{
+	margin: 0;
+	padding: 0;
+}
+
+.car_block{
+	height: 100vh;
+	width: 100%;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: grid;
+	grid-template-columns: repeat(12,1fr);
+	grid-template-rows: repeat(12,1fr);
+}
+
+.x6m_position{
+	grid-column-start: 11;
+	grid-column-end: 12;
+
+	grid-row-start: 11;
+	grid-row-end: 12;
+
+}
+
+.x6m{
+	background-image: url("../img/bmw-X6M-desktop.jpg");
+}
+
+.s8m{
+	background-image: url("../img/bmw_m8.jpg");
+}
+
+h1{
+	font-family: 'Comfortaa', cursive;
+	font-size: 46px;
+	font-weight: 400;
+	margin-bottom: 16px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: white;
+}
+
+h5{
+	margin-top: 0;
+	font-family: 'Comfortaa', cursive;
+	font-size: 18px;
+	font-weight: 400;
+	margin-bottom: 16px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: white;
+}
+
+/*
+h1#name_the_car_2{
+	position: absolute;
+	top: 850px;
+	left: 165px;
+}
+
+h5#name_the_car_1{
+	position: absolute;
+	top: 830px;
+	left: 175px;
+}
+
+h1#name_the_car_4{
+	position: absolute;
+	top: 1850px;
+	left: 1250px;
+}
+
+h5#name_the_car_3{
+	position: absolute;
+	top: 1830px;
+	left: 1255px;
+}*/
