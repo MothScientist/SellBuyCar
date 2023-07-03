@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4!8835274274@rkn5*g_f919%v34734784_@9trn$fz_*m%sw_'
+SECRET_KEY = 'django'
 # Перед выгрузкой либо удалить, либо поменять на другой рандомный
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -30,10 +30,11 @@ DEBUG = True
 # Список разрешенных хостов (при выгрузке в прод)
 ALLOWED_HOSTS = []
 
-
-# Application definition
-
+# При создании нового приложения не надо забывать его регистрировать здесь!
 INSTALLED_APPS = [
+    'main',
+    'car_database',
+    'authorization_and_personal_account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
