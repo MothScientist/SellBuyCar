@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # При создании нового приложения не надо забывать его регистрировать здесь!
 INSTALLED_APPS = [
     'main',
+    'frontend',
     'car_database',
     'authorization_and_personal_account',
     'django.contrib.admin',
@@ -38,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'frontend.apps.FrontendConfig',
 ]
 
 MIDDLEWARE = [
