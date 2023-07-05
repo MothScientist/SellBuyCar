@@ -5,19 +5,17 @@ export default function MainPage() {
   const [carData, setCarData] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:8000/admin")
+    fetch("/main/get_cars")
       .then((response) => {
-        response.json();
+        return response.json();
       })
       .then((result) => {
         setCarData(result);
-        console.log(result);
       });
   }, []);
   return (
     <div>
-        <p>Hello</p>
-      {/* <CarCardContainer data={carData} /> */}
+      { carData ?  <CarCardContainer data={carData} /> : <p>NO</p> }
     </div>
   );
 }
