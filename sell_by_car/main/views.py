@@ -20,4 +20,4 @@ class GetCar(APIView):
         if cars:
             data = CarSerializer(cars, many=True).data
             return Response(data, status=status.HTTP_200_OK)
-        return Response({'No': 'No'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'Bad request': 'Data not found'}, status=status.HTTP_404_NOT_FOUND)
