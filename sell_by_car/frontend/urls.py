@@ -6,5 +6,10 @@ urlpatterns = [
     path('', index),
     path('aboutPage', index),
     path('authentification', index),
+    path('cabinet', index),
+    path('cart', index),
+    path('map', index),
+    path('search', index),
+
 
 ]
