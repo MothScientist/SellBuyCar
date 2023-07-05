@@ -65,9 +65,6 @@ class Cars(models.Model):
         validators=[RegexValidator(r'^[1-9]\d{1,3}$', message="2-4 digits, not starting with 0")
                     ])
 
-    def __str__(self):
-        return self.brand
-
 
 # substitute in _____ the name of the application in which we are doing the migration, for example main
 # python manage.py makemigrations
