@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import MaxLengthValidator, RegexValidator
+from django.core.validators import RegexValidator
 
 
 # Django automatically adds the primary key if it hasn't been added manually
@@ -16,14 +16,12 @@ class Cars(models.Model):
 
     # Either None or up to 7 digits not starting with 0 (for example, None or 315000, but not 015000 -> 15000)
     mileage = models.PositiveIntegerField(validators=[
-        MaxLengthValidator(7),
         RegexValidator(r'(^(?!0)\d{1,7}$)|(^None$)',
                        message="Either None or up to 7 digits not starting with 0")
     ])
 
     # 3 to 8 digits not starting with 0 and without char $ (for example, 40000)
     price = models.PositiveIntegerField(validators=[
-        MaxLengthValidator(8),
         RegexValidator(r'(^(?!0)\d{3,8}$)|(^None$)',
                        message="3-8 digits, not starting with 0 and without char $")
     ])
@@ -32,14 +30,12 @@ class Cars(models.Model):
 
     # For example, 1240 (without 'kg')
     weight = models.IntegerField(validators=[
-        MaxLengthValidator(4),
         RegexValidator(r'(^(?!0)\d{3,4}$)|(^None$)', message="3-4 digits, not starting with 0")
     ])
 
     accident = models.BooleanField(default=False)
 
     car_owners = models.PositiveIntegerField(validators=[
-        MaxLengthValidator(2),
         RegexValidator(r'(^(?!0)\d{1,2}$)|(^None$)', message="1-2 digits, not starting with 0")
     ])
 
