@@ -1,3 +1,5 @@
+*.sqlite3
+
 *.Ink
 __pycache__/
 desktop.ini

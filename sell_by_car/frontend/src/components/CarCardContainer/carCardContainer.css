@@ -1,0 +1,5 @@
+.car-container{
+    display: flex;
+    column-gap: 15px;
+    flex-wrap: wrap;
+}

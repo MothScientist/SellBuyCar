@@ -64,7 +64,7 @@ class Cars(models.Model):
         max_length=4,
         validators=[RegexValidator(r'^[1-9]\d{1,3}$', message="2-4 digits, not starting with 0")
                     ])
-
+    
 
 # substitute in _____ the name of the application in which we are doing the migration, for example main
 # python manage.py makemigrations
