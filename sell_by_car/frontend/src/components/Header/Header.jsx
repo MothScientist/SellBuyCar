@@ -17,13 +17,13 @@ function Header() {
       </Button>
       <div className="header__left_links">
         <Button href="/" className="header__left_link_button">
-          Home
+          HOME
         </Button>
         <Button href="/aboutPage" className="header__left_link_button">
-          About
+          ABOUT
         </Button>
         <Button href="/authentification" className="header__left_link_button">
-          Auth
+          AUTH
         </Button>
       </div>
       <div className="header__right_links">
