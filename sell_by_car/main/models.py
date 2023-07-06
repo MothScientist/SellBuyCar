@@ -7,6 +7,7 @@ from django.core.validators import RegexValidator
 
 class Cars(models.Model):
     brand = models.CharField(max_length=15)  # Renault
+
     model = models.CharField(max_length=30)  # Logan
 
     # a four-digit number, such as 2021 ->
@@ -64,6 +65,9 @@ class Cars(models.Model):
         max_length=4,
         validators=[RegexValidator(r'^[1-9]\d{1,3}$', message="2-4 digits, not starting with 0")
                     ])
+
+    # Car image
+    # car_image = models.ImageField(upload_to='sell_by_car/frontend/static/images/car.png')
 
 # python manage.py makemigrations
 # python manage.py migrate

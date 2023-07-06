@@ -14,10 +14,14 @@ class CarView(generics.CreateAPIView):
 class GetCar(APIView):
     serializer_class = CarSerializer
 
-    def get(self, request):
+    @staticmethod  # The decorator shows that we are not using class objects as function parameters.
+    def get(request):  # if you remove 'request', then everything will break :(
         cars = Cars.objects.all()
 
         if cars:
             data = CarSerializer(cars, many=True).data
             return Response(data, status=status.HTTP_200_OK)
         return Response({'Bad request': 'Data not found'}, status=status.HTTP_404_NOT_FOUND)
+
+
+# Получение объектов: https://metanit.com/python/django/5.12.php
