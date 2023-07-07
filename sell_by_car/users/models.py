@@ -15,6 +15,6 @@ def validate_phone_number(value):
 # https://stackoverflow.com/questions/44651760/django-db-migrations-exceptions-inconsistentmigrationhistory
 
 
-class Users(AbstractUser):
+class CustomUser(AbstractUser):
     birth_date = models.DateField(null=True, blank=True)
     phone_number = models.CharField(max_length=20, validators=[validate_phone_number], unique=True, blank=True)
