@@ -4,6 +4,7 @@
   grid-template-rows: 1;
   min-height: 74px;
   margin-bottom: 20px;
+  letter-spacing: 0.2em;
 }
 
 .header__logo {
