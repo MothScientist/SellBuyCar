@@ -1,0 +1,10 @@
+.resultField{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 30px;
+    column-gap: 15px;
+    height: 10%;
+    width: calc(100%-60px);
+    font-size: 18px;
+}

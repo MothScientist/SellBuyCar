@@ -8,9 +8,9 @@ import { DataProvider } from "./components/RegistrationDataContext/RegistrationD
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <DataProvider>
+      <DataProvider>
         <App />
-        </DataProvider>
+      </DataProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

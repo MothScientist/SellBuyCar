@@ -15,7 +15,10 @@ import { useData } from "../RegistrationDataContext/RegistrationDataContext.js";
 const schema = yup.object().shape({
   email: yup
     .string()
-    .email("Email should have correct format")
+    .matches(
+      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+      "Email should have correct format"
+    )
     .required("Email is a required field"),
 });
 

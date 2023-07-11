@@ -19,17 +19,22 @@ const schema = yup.object().shape({
     .string()
     .matches(/^([^0-9]*)$/, "Last name should not contain numbers")
     .required("Last name is a required field"),
+  birthDate: yup.string().required("Birth date is a required field"),
 });
 
 function RegistrationPageStep1() {
   const navigate = useNavigate();
-  const {data, setValues} = useData();
+  const { data, setValues } = useData();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    defaultValues: { firstName: data?.firstName, lastName: data?.lastName },
+    defaultValues: {
+      firstName: data?.firstName,
+      lastName: data?.lastName,
+      birthDate: data?.birthDate,
+    },
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
@@ -59,6 +64,16 @@ function RegistrationPageStep1() {
               label="Last Name"
               placeholder="Last Name"
               {...register("lastName")}
+            />
+            <RegistrationInput
+              id="birthDate"
+              name="birthDate"
+              type="date"
+              error={!!errors.birthDate}
+              helperText={errors?.birthDate?.message}
+              label="Birth Date"
+              placeholder="Birth Date"
+              {...register("birthDate")}
             />
           </div>
           <Button className="glow-on-hover" type="submit">

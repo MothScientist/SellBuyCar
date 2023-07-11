@@ -1,0 +1,10 @@
+.registrationCheckbox{
+transform: scale(1.5);
+}
+
+.registrationCheckboxLabel{
+    font-size: 18px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    
+}
