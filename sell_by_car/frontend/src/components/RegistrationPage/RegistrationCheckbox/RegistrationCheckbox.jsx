@@ -10,7 +10,7 @@ const RegistrationCheckbox = forwardRef(function RegistrationCheckbox(
   return (
     <>
       <input type="checkbox" className={classes} ref={ref} {...props} />
-      <label for={id}>{label}</label>
+      <label className="registrationCheckboxLabel" for={id}>{label}</label>
     </>
   );
 });
