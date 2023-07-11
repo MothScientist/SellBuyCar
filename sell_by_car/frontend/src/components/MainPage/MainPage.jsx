@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CarCardContainer from "../CarCardContainer/CarCardContainer.jsx";
+import ErrorPage from "../ErrorPage/ErrorPage.jsx";
 
 export default function MainPage() {
   const [carData, setCarData] = useState();
@@ -11,11 +12,15 @@ export default function MainPage() {
       })
       .then((result) => {
         setCarData(result);
+      }).catch((reason) => {
+        console.error("DB error");
       });
   }, []);
   return (
     <div>
-      { carData ?  <CarCardContainer data={carData} /> : <p>NO</p> }
+      { carData && carData.length > 0 ? <CarCardContainer data={carData} /> : <ErrorPage/>}
     </div>
   );
 }
+
+

@@ -1,0 +1,23 @@
+.registrationMainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    background-color: #faf3f3;
+    box-shadow: 0px 5px 10px 7px rgba(34, 60, 80, 0.2);
+    height: 70%;
+    width: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.registrationMainWrapper{
+    padding-top: 5vh;
+    display: flex;
+    height: 90vh;
+    width: 80vw;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+}

@@ -1,8 +1,13 @@
 from django.db import models
 from django.core.validators import RegexValidator
+from django.contrib.auth.models import AbstractUser
 
 
-def validate_even(value):
+def validate_phone_number(value):
+    pass
+
+
+def validate_username(value):
     pass
 
 
@@ -67,11 +72,31 @@ class Cars(models.Model):
     # Nm
     torque = models.CharField(
         max_length=4,
-        validators=[RegexValidator(r'^[1-9]\d{1,3}$', message="2-4 digits, not starting with 0")
+        validators=[RegexValidator(regex=r'^[1-9]\d{1,3}$', message="2-4 digits, not starting with 0")
                     ])
 
     # Car image
     # car_image = models.ImageField(upload_to='sell_by_car/frontend/static/images/car.png')
+
+
+class ExtraUser(AbstractUser):
+    username = models.CharField(
+        "Username",
+        max_length=25,
+        unique=True,
+        help_text="Required. 25 characters or fewer. Letters, and digits only.",
+        # customize the above string as you want
+        validators=validate_username,
+        error_messages={
+            'unique': "A user with that username already exists.",
+        },
+    )
+    phone_number = models.CharField("Phone number", max_length=16, unique=True,
+                                    validators=[RegexValidator(regex=r'^\+[0-9]{11,14}$',
+                                                               message=
+                                                               "add message"
+    )])
+
 
 # python manage.py makemigrations
 # python manage.py migrate
