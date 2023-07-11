@@ -2,6 +2,10 @@ from django.db import models
 from django.core.validators import RegexValidator
 
 
+def validate_even(value):
+    pass
+
+
 # Django automatically adds the primary key if it hasn't been added manually
 # or use this: id = models.BigAutoField(primary_key=True)
 
