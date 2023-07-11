@@ -79,23 +79,12 @@ class Cars(models.Model):
     # car_image = models.ImageField(upload_to='sell_by_car/frontend/static/images/car.png')
 
 
-class ExtraUser(AbstractUser):
-    username = models.CharField(
-        "Username",
-        max_length=25,
-        unique=True,
-        help_text="Required. 25 characters or fewer. Letters, and digits only.",
-        # customize the above string as you want
-        validators=validate_username,
-        error_messages={
-            'unique': "A user with that username already exists.",
-        },
-    )
-    phone_number = models.CharField("Phone number", max_length=16, unique=True,
-                                    validators=[RegexValidator(regex=r'^\+[0-9]{11,14}$',
-                                                               message=
-                                                               "add message"
-    )])
+
+
+class ExtraUser(models.Model):
+    first_name = models.CharField(max_length=250, null=True)
+    last_name = models.CharField(max_length=250,null=True)
+    email = models.EmailField(null=True)
 
 
 # python manage.py makemigrations

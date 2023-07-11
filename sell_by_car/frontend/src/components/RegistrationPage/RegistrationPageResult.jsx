@@ -17,12 +17,31 @@ function RegistrationPageResult() {
     const formData = new FormData();
 
     entries.forEach((entry) => {
-      formData.append(entry[0], entry[1]);
-    });
+      // console.log(entry[0]);
+      if (entry[0] === "firstName") {
+        formData.append(entry[0], entry[1]);
+      }
+      if (entry[0] === "lastName") {
+        formData.append(entry[0], entry[1]);
+      }
+      if (entry[0] === "email") {
+        formData.append(entry[0], entry[1]);
+      }
 
-    const res = await fetch("http://AddresssEpta", {
+      // formData.append(entry[0], entry[1]);
+    });
+    
+    const res = await fetch("/main/add_user", {
       method: "POST",
-      body: formData,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: data?.firstName,
+        lastName: data?.lastName,
+        email: data?.email,
+      }),
     });
 
     if (res.status === 200) {
@@ -36,30 +55,25 @@ function RegistrationPageResult() {
         <div className="formWrapper">
           <p className="formTitle">Results</p>
           <div className="mainResultWrapper">
-          {entries &&
-        entries.map((entry) => {
-          return (
-            <ResultField
-              key={entry[0]}
-              name={entry[0]}
-              value={entry[1]?.toString()}
-            />
-          );
-        })}
-        </div>
-      <Button href="/authentification" className="fillAgainLink">
+            {entries &&
+              entries.map((entry) => {
+                return (
+                  <ResultField
+                    key={entry[0]}
+                    name={entry[0]}
+                    value={entry[1]?.toString()}
+                  />
+                );
+              })}
+          </div>
+          <Button href="/authentification" className="fillAgainLink">
             Fill again
           </Button>
-      <Button className="glow-on-hover" onClick={() => {
-          console.log("Hello durak");
-        }}>
+          <Button className="glow-on-hover" onClick={onSubmit}>
             Submit
           </Button>
-            
         </div>
       </MainRegistrationContainer>
-
-      
     </>
   );
 }
