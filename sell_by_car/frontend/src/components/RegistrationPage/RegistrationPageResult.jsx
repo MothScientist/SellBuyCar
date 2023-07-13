@@ -14,22 +14,22 @@ function RegistrationPageResult() {
   const entries = data ? Object.entries(data) : "";
 
   const onSubmit = async () => {
-    const formData = new FormData();
+    // const formData = new FormData();
 
-    entries.forEach((entry) => {
-      // console.log(entry[0]);
-      if (entry[0] === "firstName") {
-        formData.append(entry[0], entry[1]);
-      }
-      if (entry[0] === "lastName") {
-        formData.append(entry[0], entry[1]);
-      }
-      if (entry[0] === "email") {
-        formData.append(entry[0], entry[1]);
-      }
+    // entries.forEach((entry) => {
+    //   // console.log(entry[0]);
+    //   if (entry[0] === "firstName") {
+    //     formData.append(entry[0], entry[1]);
+    //   }
+    //   if (entry[0] === "lastName") {
+    //     formData.append(entry[0], entry[1]);
+    //   }
+    //   if (entry[0] === "email") {
+    //     formData.append(entry[0], entry[1]);
+    //   }
 
-      // formData.append(entry[0], entry[1]);
-    });
+    //   // formData.append(entry[0], entry[1]);
+    // });
     
     const res = await fetch("/main/add_user", {
       method: "POST",
@@ -38,8 +38,8 @@ function RegistrationPageResult() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        firstName: data?.firstName,
-        lastName: data?.lastName,
+        first_name: data?.firstName,
+        last_name: data?.lastName,
         email: data?.email,
       }),
     });

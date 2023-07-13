@@ -126,7 +126,7 @@ class ExtraUser(models.Model):
 
     phone_number = models.CharField(max_length=17,
                                     blank=False,
-                                    null=False,
+                                    null=True,
                                     unique=True,
                                     validators=[validate_phone_number]
                                     )

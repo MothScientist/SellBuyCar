@@ -36,11 +36,9 @@ class AddUser(APIView):
             queryset = ExtraUser.objects.filter(email=email)
             if queryset.exists():
                 return Response({'Bad Request': 'Govno ebanoe...'}, status=status.HTTP_402_PAYMENT_REQUIRED)
-
             user = ExtraUser(first_name=first_name, last_name=last_name, email=email)
             user.save()
             return Response(UserSerializer(user).data, status=status.HTTP_200_OK)
-        print(serializer.error_messages)
         return Response({'Bad Request': 'Invalid data...'},status=status.HTTP_400_BAD_REQUEST)
 
 # Получение объектов: https://metanit.com/python/django/5.12.php
