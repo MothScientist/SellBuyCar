@@ -1,10 +1,36 @@
 from django.db import models
-from django.core.validators import RegexValidator
-from django.contrib.auth.models import AbstractUser
+from django.core.validators import RegexValidator, ValidationError
+# from django.contrib.auth.models import AbstractUser
+import re
+import datetime
 
 
 def validate_phone_number(value):
-    pass
+    if not re.match(r'^\+\d{10,18}$', value):
+        raise ValidationError("Invalid phone number")
+
+
+def validate_email(value):
+    temporary_domains = ["dispostable.com", "guerrillamail.com", "mailinator.com", "10minutemail.com", "tempmail.net",
+                         "yopmail.com", "temp-mail.org", "trashmail.com", "getnada.com", "burnermail.io", "maildrop.cc",
+                         "fakeinbox.com", "mytrashmail.com", "10mails.net", "mailnesia.com", "sharklasers.com",
+                         "mailcatch.com", "wegwerfmail.de", "spamgourmet.com", "mailinator.net", "discard.email",
+                         "getairmail.com", "owlymail.com", "jetable.org", "throwawaymail.com", "tempail.com",
+                         "mailsac.com", "tempmailo.com", "mailtemp.uk", "gettempmail.com", "trashmail.ws",
+                         "maildrop24.com", "temp-mail.io", "throwawaymail.com", "guerrillamail.net", "example.com"
+                         ]
+    if not re.match(rf"^[A-Za-z0-9._%+-]+@(?!({'|'.join(temporary_domains)})).*$", value):
+        raise ValidationError("Invalid email address")
+
+
+# repair solution
+def validate_dob(value):
+    try:
+        if not (len(value) != 10 and value[2] == '.' and value[5] == '.' and
+                18 <= int(value[-4:]) > datetime.datetime.now().year - 80):
+            raise ValidationError("Invalid date of birth")
+    except ValueError:
+        raise ValidationError("wtf with year")
 
 
 def validate_username(value):
@@ -79,12 +105,50 @@ class Cars(models.Model):
     # car_image = models.ImageField(upload_to='sell_by_car/frontend/static/images/car.png')
 
 
-
-
 class ExtraUser(models.Model):
-    first_name = models.CharField(max_length=250, null=True)
-    last_name = models.CharField(max_length=250,null=True)
-    email = models.EmailField(null=True)
+    first_name = models.CharField(max_length=250,
+                                  blank=False,
+                                  null=False,
+                                  unique=False,
+                                  validators=[validate_username])
+
+    last_name = models.CharField(max_length=250,
+                                 blank=False,
+                                 null=False,
+                                 unique=False,
+                                 validators=[validate_username])
+
+    email = models.EmailField(max_length=50,
+                              blank=False,
+                              null=False,
+                              unique=True,
+                              validators=[validate_email])
+
+    phone_number = models.CharField(max_length=17,
+                                    blank=False,
+                                    null=False,
+                                    unique=True,
+                                    validators=[validate_phone_number]
+                                    )
+
+    # Date of Birth
+    DOB = models.CharField(max_length=10,
+                           blank=False,
+                           null=True,
+                           unique=False,
+                           validators=[validate_dob]
+                           )
+
+    country = models.CharField(max_length=30,
+                               blank=True,
+                               null=True,
+                               unique=False,
+                               )
+
+    city = models.CharField(max_length=35,
+                            blank=True,
+                            null=True,
+                            unique=False)
 
 
 # python manage.py makemigrations
