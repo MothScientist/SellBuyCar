@@ -1,4 +1,9 @@
+# Databases
 *.sqlite3
+
+# Model`s migration
+migrations/*
+!migrations/__init__.py
 
 *.Ink
 __pycache__/
