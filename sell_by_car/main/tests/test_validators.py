@@ -2,8 +2,6 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 from ..models import validate_phone_number, validate_email, validate_dob
 
-# python manage.py test
-
 
 class ExtraUserTestCase(TestCase):
 

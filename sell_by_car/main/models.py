@@ -4,6 +4,9 @@ from django.core.validators import RegexValidator, ValidationError
 import re
 import datetime
 
+# python manage.py makemigrations
+# python manage.py migrate
+
 
 def validate_phone_number(value):
     if not re.match(r'^\+\d{10,18}$', value):
@@ -149,7 +152,3 @@ class ExtraUser(models.Model):
                             blank=True,
                             null=True,
                             unique=False)
-
-
-# python manage.py makemigrations
-# python manage.py migrate

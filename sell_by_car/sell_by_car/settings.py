@@ -19,12 +19,47 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django'
 # Перед выгрузкой либо удалить, либо поменять на другой рандомный
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in production!!!
 DEBUG = True
-# Перед отправкой в прод менять на False
 
 # Список разрешенных хостов (при выгрузке в прод)
 ALLOWED_HOSTS = []
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'console': {
+            'format': '%(name)-12s %(levelname)-8s %(message)s'
+        },
+        'file': {
+            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'console'
+        },
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': "sell_by_car/logger.log"
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'WARNING',
+            'handlers': ['file'],
+            'propagate': True
+        },
+        'django.request': {
+            'level': 'WARNING',
+            'handlers': ['file']
+        }
+    },
+}
 
 # При создании нового приложения не надо забывать его регистрировать здесь!
 INSTALLED_APPS = [
@@ -125,4 +160,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Update Node.js packets: in /frontend: npm run dev
+
+# Update Node.js packets: in /frontend:
+# npm install
+# npm run dev
