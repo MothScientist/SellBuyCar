@@ -127,6 +127,8 @@ class ExtraUser(models.Model):
                               unique=True,
                               validators=[validate_email])
 
+    password = models.CharField(max_length=64)  # set parameters
+
     phone_number = models.CharField(max_length=17,
                                     blank=True,
                                     null=True,
@@ -142,13 +144,13 @@ class ExtraUser(models.Model):
                            validators=[validate_dob]
                            )
 
-    country = models.CharField(max_length=30,
+    country = models.CharField(max_length=50,
                                blank=True,
                                null=True,
                                unique=False,
                                )
 
-    city = models.CharField(max_length=35,
+    city = models.CharField(max_length=50,
                             blank=True,
                             null=True,
                             unique=False)
