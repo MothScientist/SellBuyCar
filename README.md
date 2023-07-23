@@ -1,9 +1,9 @@
-| Technology | Version                      |
-|------------|------------------------------|
-| Node.js    | 18.16.1 - :white_check_mark: |
-| React      | 18.2.0 - :white_check_mark:  |
-| Python     | 3.11.3 - :white_check_mark:  |
-| Django     | 4.2.2 - :white_check_mark:   |
+| Technology | Version |
+|------------|---------|
+| *Node.js*  | 18.16.1 |
+| *React*    | 18.2.0  |
+| *Python*   | 3.11.3  |
+| *Django*   | 4.2.2   |
 
 ---
 
