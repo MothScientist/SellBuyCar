@@ -1526,3 +1526,19 @@ Vagrantfile
 ### CMake Patch ###
 # External projects
 *-prefix/
+
+### TypeScript ###
+*.csv
+*.dat
+*.gz
+results
+tmp
+
+# Build
+public/css/main.css
+
+# Ignore built ts files
+dist/**/*
+
+# ignore yarn.lock
+yarn.lock
