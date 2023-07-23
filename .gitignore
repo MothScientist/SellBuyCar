@@ -6,6 +6,9 @@ migrations/*
 !migrations/__init__.py
 migrations/[0-9]*
 
+# Hiding future changes from the repository
+new_modules/
+
 *.ink
 desktop.ini
 
