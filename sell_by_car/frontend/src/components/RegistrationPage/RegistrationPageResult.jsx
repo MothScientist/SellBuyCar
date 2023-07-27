@@ -11,6 +11,9 @@ function RegistrationPageResult() {
   if (!data?.hasPhone && data?.phoneNumber) {
     data.phoneNumber = "";
   }
+  if (data?.hasPhone && data?.phoneNumber) {
+    data.phoneNumber = data.phoneNumber.replace("/ /g", "");
+  }
   const entries = data ? Object.entries(data) : "";
 
   const onSubmit = async () => {
