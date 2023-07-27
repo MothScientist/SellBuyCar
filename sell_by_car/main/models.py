@@ -57,8 +57,6 @@ country_phone_codes = {'Australia': '+61', 'Austria': '+43', 'Azerbaijan': '+994
                        'Switzerland': '+41', 'Sweden ': '+46', 'Sri Lanka': '+94', 'Ecuador': '+593',
                        'Equatorial Guinea': '+240', 'Eritrea': '+291', 'Estonia': '+372', 'Ethiopia': '+251',
                        'South Korea': '+82', 'South Africa': '+27', 'Jamaica': '+1876', 'Japan': ' +81'}
-
-
 # Format phone number: +7 800 555 35 35 (without spaces) -> +78005553535 (in this form will be in the database)
 # No dividers - to save memory and lightly search.
 # Separators for convenience can be inserted when extracting the phone number.
