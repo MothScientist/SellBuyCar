@@ -57,7 +57,6 @@ function RegistrationPageResult() {
           <Button className="glow-on-hover" onClick={onSubmit}>
             Submit
           </Button>
-          <Link to="/">ooo</Link>
         </div>
       </MainRegistrationContainer>
     </>
