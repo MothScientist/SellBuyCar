@@ -2,6 +2,7 @@
 
 # Model`s migration
 migrations/*
+sell_by_car/main/migrations/*
 !migrations/__init__.py
 migrations/[0-9]*
 
