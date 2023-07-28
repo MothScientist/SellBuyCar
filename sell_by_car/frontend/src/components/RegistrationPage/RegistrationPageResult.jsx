@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./registrationPage.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import { useData } from "../RegistrationDataContext/RegistrationDataContext.js";
 import ResultField from "./ResultField/ResultField.jsx";
 import MainRegistrationContainer from "./MainRegistrationContainer/MainRegistrationContainer.jsx";
@@ -8,32 +8,12 @@ import Button from "../Button.jsx";
 
 function RegistrationPageResult() {
   const { data } = useData();
-  if (!data?.hasPhone && data?.phoneNumber) {
-    data.phoneNumber = "";
-  }
-  if (data?.hasPhone && data?.phoneNumber) {
-    data.phoneNumber = data.phoneNumber.replace("/ /g", "");
-  }
+  const navigate = useNavigate();
   const entries = data ? Object.entries(data) : "";
-
+  
   const onSubmit = async () => {
-    // const formData = new FormData();
+    const phoneNumberFormated = data?.phoneNumber ? data?.phoneNumber.split(" ").join("") : null;
 
-    // entries.forEach((entry) => {
-    //   // console.log(entry[0]);
-    //   if (entry[0] === "firstName") {
-    //     formData.append(entry[0], entry[1]);
-    //   }
-    //   if (entry[0] === "lastName") {
-    //     formData.append(entry[0], entry[1]);
-    //   }
-    //   if (entry[0] === "email") {
-    //     formData.append(entry[0], entry[1]);
-    //   }
-
-    //   // formData.append(entry[0], entry[1]);
-    // });
-    
     const res = await fetch("/main/add_user", {
       method: "POST",
       headers: {
@@ -44,13 +24,15 @@ function RegistrationPageResult() {
         first_name: data?.firstName,
         last_name: data?.lastName,
         email: data?.email,
+        phone_number: phoneNumberFormated,
+        DOB: data?.birthDate.split("-").reverse().join("."),
       }),
     });
 
     if (res.status === 200) {
-      // Swal.fire("Yeah", "Data has posted")
-      console.log("All good");
+      return navigate("/")
     }
+    return null;
   };
   return (
     <>
