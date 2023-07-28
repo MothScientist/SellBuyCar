@@ -57,11 +57,13 @@ country_phone_codes = {'Australia': '+61', 'Austria': '+43', 'Azerbaijan': '+994
                        'Switzerland': '+41', 'Sweden ': '+46', 'Sri Lanka': '+94', 'Ecuador': '+593',
                        'Equatorial Guinea': '+240', 'Eritrea': '+291', 'Estonia': '+372', 'Ethiopia': '+251',
                        'South Korea': '+82', 'South Africa': '+27', 'Jamaica': '+1876', 'Japan': ' +81'}
+
+
 # Format phone number: +7 800 555 35 35 (without spaces) -> +78005553535 (in this form will be in the database)
 # No dividers - to save memory and lightly search.
 # Separators for convenience can be inserted when extracting the phone number.
 def validate_phone_number(value: str):
-    if not re.match(r'^\+\d{11,13}', value) or value[:-10] not in country_phone_codes.values():
+    if not re.match(r'^\+\d{11,14}', value) or value[:-10] not in country_phone_codes.values():
         raise ValidationError("Invalid phone number")
 
 
@@ -112,6 +114,10 @@ def validate_dob(value: str):
 
 
 def validate_username(value):
+    pass
+
+
+def validate_password(value):
     pass
 
 
@@ -195,40 +201,43 @@ class Cars(models.Model):
 
 
 class ExtraUser(models.Model):
-    first_name = models.CharField(max_length=250,
+    first_name = models.CharField(max_length=50,
                                   blank=False,
                                   null=False,
                                   unique=False,
                                   validators=[validate_username],
                                   )
 
-    last_name = models.CharField(max_length=250,
+    last_name = models.CharField(max_length=50,
                                  blank=False,
                                  null=False,
                                  unique=False,
                                  validators=[validate_username],
                                  )
 
-    email = models.EmailField(max_length=50,
+    email = models.EmailField(max_length=255,
                               blank=False,
                               null=False,
                               unique=True,
                               validators=[validate_email],
                               )
 
-    # salt = models.CharField(max_length=64,
-    #                         blank=False,
-    #                         null=False,
-    #                         )
-    #
-    # password_hash = models.CharField(max_length=16,
-    #                                  blank=False,
-    #                                  null=False,
-    #                                  )  # set parameters
+    salt = models.CharField(max_length=64,
+                            blank=True,
+                            null=True,
+                            unique=False,
+                            )
 
-    phone_number = models.CharField(max_length=17,
-                                    blank=True,
-                                    null=True,
+    password_hash = models.CharField(max_length=64,
+                                     blank=False,
+                                     null=False,
+                                     unique=False,
+                                     validators=[validate_password],
+                                     )
+
+    phone_number = models.CharField(max_length=15,
+                                    blank=False,
+                                    null=False,
                                     unique=True,
                                     validators=[validate_phone_number],
                                     )
@@ -236,7 +245,7 @@ class ExtraUser(models.Model):
     # Date of Birth
     DOB = models.CharField(max_length=10,
                            blank=False,
-                           null=True,
+                           null=False,
                            unique=False,
                            validators=[validate_dob],
                            )
@@ -252,3 +261,8 @@ class ExtraUser(models.Model):
                             null=True,
                             unique=False,
                             )
+
+# null and blank are not needed for char and text model formats,
+# but are added in case there is a scenario where it may become
+# necessary to work with parameters without completely changing them
+# (null=True, blank=False).
