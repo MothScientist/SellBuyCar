@@ -53,9 +53,5 @@ If you have questions, suggestions, or just want to say hello, feel free to cont
 You can contact us by email: moth.feedback@gmail.com
 
 ## Developers
-#### *Roman* - https://github.com/MothScientist - Backend</br>
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=MothScientist)](https://github.com/anuraghazra/github-readme-stats) </br>
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=MothScientist&layout=compact)](https://github.com/anuraghazra/github-readme-stats) </br>
-#### *Fedor* - https://github.com/fveden - Frontend and design</br>
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=fveden)](https://github.com/anuraghazra/github-readme-stats) </br>
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=fveden&layout=compact)](https://github.com/anuraghazra/github-readme-stats) </br>
+#### *Roman* - https://github.com/MothScientist - Backend
+#### *Fedor* - https://github.com/fveden - Frontend and design
