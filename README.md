@@ -16,9 +16,9 @@
 ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
 ---
 ## *Description*
-*Our site is being developed with the main goal of providing a reliable and fast platform for ordering and delivering 
+Our site is being developed with the main goal of providing a reliable and fast platform for ordering and delivering 
 new and used vehicles worldwide. The focus on *performance* and *security* is a clear indication of our user-centered 
-focus.*
+focus.
 
 ## *Installation*
 1. Clone the repository: </br>
