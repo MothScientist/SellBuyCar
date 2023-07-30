@@ -34,7 +34,7 @@ focus.*
 ```npm run dev``` </br></br>
 6. Perform model migrations for the database: </br> 
 ```python manage.py makemigrations```, </br> 
-```python manage.py migrate```
+```python manage.py migrate``` </br> </br> 
 7. Go to the project directory: </br>
 ```cd sell_by_car``` </br></br>
 8. Start the project: </br>
