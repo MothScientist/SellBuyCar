@@ -43,7 +43,7 @@ focus.*
 
 
 ## *Usage*
-*At this stage, the project can be used no more than a template that combines Django and React.*
+At this stage, the project can be used no more than a template that combines Django and React.
 
 ## *License*
 GNU Affero General Public License v3.0
