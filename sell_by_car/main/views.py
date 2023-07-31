@@ -42,6 +42,6 @@ class AddUser(APIView):
             user.save()
             return Response(UserSerializer(user).data, status=status.HTTP_200_OK)
         print(serializer.error_messages)
-        return Response({'Bad Request': 'Invalid data...'},status=status.HTTP_400_BAD_REQUEST)
+        return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
 
 # Получение объектов: https://metanit.com/python/django/5.12.php
