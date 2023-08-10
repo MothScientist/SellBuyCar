@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CarCardContainer from "../CarCardContainer/CarCardContainer.jsx";
 import ErrorPage from "../ErrorPage/ErrorPage.jsx";
+import CarCard from "../CarCardContainer/CarCard/CarCard.jsx";
 
 export default function MainPage() {
   const [carData, setCarData] = useState();
@@ -18,6 +19,7 @@ export default function MainPage() {
   }, []);
   return (
     <div>
+      <CarCard/>
       { carData && carData.length > 0 ? <CarCardContainer data={carData} /> : <ErrorPage/>}
     </div>
   );
