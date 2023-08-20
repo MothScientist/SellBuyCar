@@ -1,6 +1,8 @@
 from django.core.exceptions import ValidationError
 from django.test import TestCase
-from ..models import validate_phone_number, validate_email, validate_dob
+from ..models import validate_phone_number, validate_email, validate_dob, validate_password
+
+# python manage.py test
 
 
 class ExtraUserTestCase(TestCase):
@@ -121,6 +123,21 @@ class ExtraUserTestCase(TestCase):
     def _check_test_dob_validation(value):
         try:
             validate_dob(value)
+        except ValidationError:
+            return False
+        return True
+
+    # Password
+    def test_password_validation_1(self):
+        self.assertTrue(self._check_test_password_validation("Qw36erREYEtYY234"))
+
+    def test_password_validation_2(self):
+        self.assertFalse(self._check_test_password_validation("123"))
+
+    @staticmethod
+    def _check_test_password_validation(value):
+        try:
+            validate_password(value)
         except ValidationError:
             return False
         return True

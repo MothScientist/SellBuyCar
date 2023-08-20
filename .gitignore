@@ -5,6 +5,8 @@ migrations/*
 sell_by_car/main/migrations/*
 !migrations/__init__.py
 migrations/[0-9]*
+sell_by_car/under_development/cpp
+sell_by_car/under_development/cpp/validators.cpp
 
 # Hiding future changes from the repository
 new_modules/
