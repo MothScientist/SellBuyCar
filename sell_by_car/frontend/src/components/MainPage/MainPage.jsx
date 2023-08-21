@@ -41,7 +41,6 @@ export default function MainPage() {
           );
         })}
       </CarCarousel>
-      <CarCard />
       {carData && carData.length > 0 ? (
         <CarCardContainer data={carData} />
       ) : (

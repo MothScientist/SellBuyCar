@@ -1,17 +1,26 @@
-.carCarousel_container{
-    height: 700px;
-    width: 1500px;
-    display: flex;
+.carCarousel_container {
+  height: 70vh;
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.carCarousel_window{
+.carCarousel_window {
   height: 100%;
   width: 100%;
   overflow: hidden;
   border-radius: 50px;
 }
 
-.carCarousel_all-items-container{
- height: 100%;
- display: flex;
+.carCarousel_all-items-container {
+  height: 100%;
+  display: flex;
+  transition: translate;
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
 }
 
+.arrow {
+  cursor: pointer;
+}
