@@ -2,6 +2,13 @@ import React, { useEffect, useState } from "react";
 import CarCardContainer from "../CarCardContainer/CarCardContainer.jsx";
 import ErrorPage from "../ErrorPage/ErrorPage.jsx";
 import CarCard from "../CarCardContainer/CarCard/CarCard.jsx";
+import CarCarousel from "./CarCarousel/CarCarousel.jsx";
+import "./mainPage.css";
+const imgSources = [
+  "../../../../static/images/logan.jpg",
+  "../../../../static/images/bmw-m8.jpg",
+  "../../../../static/images/bmw-m2-cs.jpg",
+];
 
 export default function MainPage() {
   const [carData, setCarData] = useState();
@@ -13,16 +20,33 @@ export default function MainPage() {
       })
       .then((result) => {
         setCarData(result);
-      }).catch((reason) => {
+      })
+      .catch((reason) => {
         console.error("DB error");
       });
   }, []);
   return (
     <div>
-      <CarCard/>
-      { carData && carData.length > 0 ? <CarCardContainer data={carData} /> : <ErrorPage/>}
+      <CarCarousel>
+        {imgSources.map((item, index) => {
+          return (
+            <div className="carCarousel__item">
+              <img
+                className="carCarousel__img"
+                src={item}
+                alt="car"
+                key={index}
+              ></img>
+            </div>
+          );
+        })}
+      </CarCarousel>
+      <CarCard />
+      {carData && carData.length > 0 ? (
+        <CarCardContainer data={carData} />
+      ) : (
+        <ErrorPage />
+      )}
     </div>
   );
 }
-
-

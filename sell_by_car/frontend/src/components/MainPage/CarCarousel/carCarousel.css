@@ -1,0 +1,17 @@
+.carCarousel_container{
+    height: 700px;
+    width: 1500px;
+    display: flex;
+}
+.carCarousel_window{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+.carCarousel_all-items-container{
+ height: 100%;
+ display: flex;
+}
+
