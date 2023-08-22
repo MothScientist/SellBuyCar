@@ -11,22 +11,22 @@ const imgSources = [
 ];
 
 export default function MainPage() {
-  const [carData, setCarData] = useState();
+  // const [carData, setCarData] = useState();
 
-  useEffect(() => {
-    fetch("/main/get_cars")
-      .then((response) => {
-        return response.json();
-      })
-      .then((result) => {
-        setCarData(result);
-      })
-      .catch((reason) => {
-        console.error("DB error");
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("/main/get_cars")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((result) => {
+  //       setCarData(result);
+  //     })
+  //     .catch((reason) => {
+  //       console.error("DB error");
+  //     });
+  // }, []);
   return (
-    <div>
+    <div className="main-container">
       <CarCarousel>
         {imgSources.map((item, index) => {
           return (
@@ -41,11 +41,11 @@ export default function MainPage() {
           );
         })}
       </CarCarousel>
-      {carData && carData.length > 0 ? (
+      {/* {carData && carData.length > 0 ? (
         <CarCardContainer data={carData} />
       ) : (
         <ErrorPage />
-      )}
+      )} */}
     </div>
   );
 }
