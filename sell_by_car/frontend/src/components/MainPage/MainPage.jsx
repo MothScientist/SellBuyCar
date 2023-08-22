@@ -5,7 +5,7 @@ import CarCard from "../CarCardContainer/CarCard/CarCard.jsx";
 import CarCarousel from "./CarCarousel/CarCarousel.jsx";
 import "./mainPage.css";
 const imgSources = [
-  "../../../../static/images/logan.jpg",
+  "../../../../static/images/loganwobg.png",
   "../../../../static/images/bmw-m8.jpg",
   "../../../../static/images/bmw-m2-cs.jpg",
 ];
