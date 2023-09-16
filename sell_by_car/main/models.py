@@ -79,14 +79,14 @@ def validate_phone_number(value: str):
 
 # Format email address:
 def validate_email(value: str):
-    temporary_domains = ("dispostable.com", "guerrillamail.com", "mailinator.com", "10minutemail.com", "tempmail.net",
-                         "yopmail.com", "temp-mail.org", "trashmail.com", "getnada.com", "burnermail.io", "maildrop.cc",
-                         "fakeinbox.com", "mytrashmail.com", "10mails.net", "mailnesia.com", "sharklasers.com",
-                         "mailcatch.com", "wegwerfmail.de", "spamgourmet.com", "mailinator.net", "discard.email",
-                         "getairmail.com", "owlymail.com", "jetable.org", "throwawaymail.com", "tempail.com",
-                         "mailsac.com", "tempmailo.com", "mailtemp.uk", "gettempmail.com", "trashmail.ws",
-                         "maildrop24.com", "temp-mail.io", "throwawaymail.com", "guerrillamail.net", "example.com"
-                         )
+    temporary_domains: tuple = ("dispostable.com", "guerrillamail.com", "mailinator.com", "10minutemail.com",
+                                "tempmail.net", "example.com", "maildrop.cc",
+                                "yopmail.com", "temp-mail.org", "trashmail.com", "getnada.com", "burnermail.io",
+                                "fakeinbox.com", "mytrashmail.com", "10mails.net", "mailnesia.com", "sharklasers.com",
+                                "mailcatch.com", "wegwerfmail.de", "spamgourmet.com", "mailinator.net", "discard.email",
+                                "getairmail.com", "owlymail.com", "jetable.org", "throwawaymail.com", "tempail.com",
+                                "mailsac.com", "tempmailo.com", "mailtemp.uk", "gettempmail.com", "trashmail.ws",
+                                "maildrop24.com", "temp-mail.io", "throwawaymail.com", "guerrillamail.net")
 
     if not re.match(rf"^[A-Za-z0-9._%+-]+@(?!({'|'.join(temporary_domains)})).*$", value):
         raise ValidationError("Invalid email address")
@@ -131,9 +131,9 @@ def validate_password(value):
     if not 6 <= len(value) <= 128:
         raise ValidationError("Invalid password length")
 
-    has_uppercase = False
-    has_lowercase = False
-    has_digit = False
+    has_uppercase: bool = False
+    has_lowercase: bool = False
+    has_digit: bool = False
 
     for char in value:
         if char.isupper():
