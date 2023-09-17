@@ -1,3 +1,4 @@
+@import "../constants.css";
 .header {
   display: grid;
   grid-template-columns: 10% 1fr 20%;
@@ -5,6 +6,7 @@
   min-height: 74px;
   margin-bottom: 20px;
   letter-spacing: 0.2em;
+  
 }
 
 .header__logo {
@@ -50,7 +52,7 @@
 }
 
 .header__left_link_button:hover {
-  border-bottom: 3px solid blue;
+  border-bottom: 3px solid var(--purple);
 }
 
 .header__right_links {
@@ -63,7 +65,7 @@
   align-items: center;
 }
 .header__right_link_button:hover {
-  border-bottom: 3px solid blue;
+  border-bottom: 3px solid var(--purple);
 }
 .header__right_link_icon_image {
   height: 20px;

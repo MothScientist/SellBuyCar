@@ -1,0 +1,42 @@
+@import "../../constants.css";
+
+.carCarousel_container {
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5vh;
+
+}
+.carCarousel_window {
+  height: 100%;
+  width: 70vw;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carCarousel_all-items-container {
+  height: 100%;
+  display: flex;
+  transition: translate;
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+.arrow {
+  cursor: pointer;
+  width: 60px;
+  padding: 20px 0;
+  border-radius: 50px;
+  transition: background-color 0.4s ease-in-out;
+}
+.arrow:hover{
+  background-color: var(--light-grey);
+}
+
+.arrow:active{
+  transition-duration: 0.07s;
+  background-color: var(--grey);
+}

@@ -13,3 +13,9 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExtraUser
         fields = ('first_name', 'last_name', 'email', 'phone_number', 'DOB')
+
+
+class EmailSerializer(serializers.Serializer):
+    class Meta:
+        model = ExtraUser
+        fields = 'email'
