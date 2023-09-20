@@ -22,7 +22,7 @@ focus.
 
 ## *Installation*
 1. Clone the repository: </br>
-```git clone https://github.com/your-username/car-market.git``` </br></br>
+```git clone https://github.com/MothScientist/sell_by_car.git``` </br></br>
 2. Go to the project directory: </br>
 ```cd sell_by_car``` </br></br>
 3. Install backend dependencies: </br> 
